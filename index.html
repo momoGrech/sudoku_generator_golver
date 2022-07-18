@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudku Solver</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  </head>
+<body>
+
+  <main>
+    <div class="popup_time animated" id="popup-1">
+      <div class="popup-content">
+          <a id="popup-close" class="animated">&times;</a>
+          <p class="popup_time_content">Game Over!</p>         
+      </div>
+    </div>
+
+    <section id="timing">
+      <div id="countdown">
+        <p>count time</p>
+        <p id="counter">0</p>
+      </div>
+      <div id="button_container">
+        <button class="timing-button time-btn-5">5 min</button>
+        <button class="timing-button time-btn-7">7 min</button>
+        <button class="timing-button time-btn-10">10 min</button>
+      </div>
+
+      
+    </section>
+    <div id="puzzle"></div>
+  
+    <div id="button-calculator">
+      <button type="button" id="call_API" class="button"><span class="button__text">Generate Puzzle</span></button>
+      <button type="button" class="reset">Reset</button>
+      <button id="solve-button">Solve</button>
+    </div>
+    <div id="options"></div>
+  </main>
+
+    <!-- <a href="#popup-1" class="button">Learn more</a> -->
+
+    <div class="popup animated" id="popup-1">
+        <div class="popup-content">
+            <a id="popup-close" class="animated">&times;</a>
+            <div class="level-container">
+              <button class="game-level" id="beginner">Beginner</button>
+              <button class="game-level" id="intermediate">Intermediate</button>
+              <button class="game-level" id="hard">Hard</button>
+              <button class="game-level" id="nightmare">Nightmare</button>
+            </div>
+           
+        </div>
+    </div>
+  
+  <script src="script.js"></script>
+  <!-- <script src="generator.js"></script> -->
+  
+</body>
+</html>

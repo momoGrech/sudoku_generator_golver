@@ -1,0 +1,365 @@
+*,
+*::after,
+*::before {
+margin: 0;
+padding: 0;
+box-sizing: inherit; 
+}
+
+*:focus {
+    outline: none;
+}
+
+body{
+    background-color: #2d3441;
+    
+    overflow-x: hidden;
+}
+
+/* p{
+    font-size: 16px;
+} */
+
+#output, #main-content, #output-description{
+    position: absolute;
+    display: block;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+}
+
+
+hr{
+    height: 3px;
+    background-color: #d68c42;
+    border: none;
+    width: 100%;
+    position: absolute;
+    top: 25%;
+}
+#main-content{
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    height: 200px;
+}
+
+.values{
+    width: 627px;
+    display: flex;
+    flex-direction: row;
+    position: static;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.values > input{
+    border: none;
+    margin-left: 25px;
+    margin-right: 30px;
+    border-radius: 3px;
+    width: 150px;
+    height: 30px;
+    padding-left: 5px;
+}
+
+main {
+    /* background-color: aqua; */
+    display: grid;
+    grid-template-columns: repeat(3, 24em);
+    grid-template-rows: repeat(2, auto);
+    column-gap: 50px;
+    margin-top: 4em;
+    justify-content: space-around;
+    align-items: center;
+    height: 520px;
+}
+
+/* #button-calculator {
+    background-color: rgb(143, 93, 33);
+} */
+
+#button-options, #button-calculator, #timing{
+    display: grid;
+    grid-template-rows: repeat(3, 150px);
+    column-gap: 67px;
+    justify-content: center;
+    
+}
+#button-options, #button-calculator, #timing{
+    align-items: center;
+}
+
+
+#timing {
+    /* background-color: rgb(117, 41, 41); */
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+    grid-template-rows: repeat(2, 150px);
+    grid-template-columns: repeat(1, 100%);
+}
+
+#timing p {
+    color: #fff;
+}
+
+#button-calculator> button:first-child{
+    background-color: #007a63;
+}
+
+#button-calculator> button:first-child:hover{
+    background-color: #048b73;
+}
+
+#button-options > button, #button-calculator > button, .timing-button, .game-level{
+    background-color: transparent;
+    border-radius: 3px;
+    border: 1px #fff solid;
+    height: 35px;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    padding: 5px;
+    padding-top: 3px;
+    outline: none;
+}
+
+#options, .input-style {
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+}
+
+#button_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* background-color: #2d3441; */
+    width: 100%;
+    
+}
+
+.timing-button {
+    width: 28%;
+}
+
+#button-options > button:hover{
+    background-color: #007a63;
+}
+
+#puzzle {
+    width: 405px;
+    height: 405px;
+    background-color: #2d3441;
+    margin: -10px;
+    display: grid;
+    grid-template-rows: repeat(9, 45px);
+    grid-template-columns: repeat(9, 45px);
+}
+
+
+
+#puzzle .input-style {
+    width: 45px;
+    height: 45px;
+    box-sizing: border-box;
+    border: 1px rgb(82, 82, 82) solid;
+    background-color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    /* margin: -2px 0px -2px 0; */
+}
+
+#temp{
+    display: grid;
+    grid-template-rows: repeat(9, 45px);
+    grid-template-columns: repeat(9, 45px);
+}
+
+/* .style {
+    width: 45px;
+    height: 45px;
+    box-sizing: border-box;
+    border: 1px rgb(82, 82, 82) solid;
+    background-color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+} */
+
+input:hover, #options .single_option:hover {
+    cursor: pointer;
+    background-color: #048b73;
+}
+
+
+.even-section {
+    background-color: rgb(194, 193, 193);
+}
+
+/* .even-section, .odd-section{
+    font-weight: bold;
+    text-align: center; 
+    padding-left: 10px;
+} */
+
+
+.odd-section {
+    background-color: rgb(177, 177, 177) !important;
+}
+
+
+.button {
+    position: relative;
+    padding: 8px 16px;
+    background: #009579;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+  
+.button:active {
+background: #007a63;
+}
+
+#options{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 45px;
+    width: 405px;
+    position: absolute;
+    top: calc(405px + 4em + 100px);
+    right: 50%;
+    transform: translate(50%,-50%);
+}
+
+.disable_options {
+    /* visibility: hidden; */
+    opacity: 0;
+}
+
+.single_option {
+    text-align: center;
+    border: 1px rgb(48, 48, 48) solid;
+    width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #fff;
+    background-color:#009579;
+    ;
+}
+
+.number-selected {
+    background-color: #d68c42;
+}
+
+/* .animate {
+    animation-name: slidein;
+    background-color: #2d3441;
+} */
+.animate {
+    animation: blinker 1s linear infinite;
+    background-color: #E74C3C !important;
+    animation-iteration-count: 2;
+}
+
+.finaSolve{
+    background-color: #940d77 !important;
+}
+  
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
+
+.hover{
+    background-color: darkgray;
+}
+
+/* pop up */
+
+.popup, .popup_time {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(90deg, rgba(186,186,186,0.8) 0%, rgba(73,73,73,0.8) 100%);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.pop {
+    opacity: 1;
+    visibility: visible;
+    animation-name: zoomIn;
+    animation-duration: 0.5s;
+}
+
+.level-container, .popup_time_content{
+    width: 100%;
+    height: 100px;
+    background-color: #009579;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    top: 50%;
+    transform: translate(0 , -50%);
+}
+
+.popup_time_content {
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    color: #fff;
+    font-size: 25px;
+    background-color: #E74C3C;
+}
+.game-level{
+    width: 6em;
+}
+
+#popup-close {
+    position: absolute;
+    
+    right: 3rem;
+    top: 3rem;
+    line-height: 0;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    z-index: 999;
+    font-size: 3rem;
+    text-decoration: none;
+}
+
+#popup-close:hover {
+    color: #20bf6b;
+}
+
+
+
+.popup-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 60vh;
+    box-shadow: 0 2rem 4rem rgba(black, .2);
+    border-radius: 3px;
+    position: relative;
+    background: rgba(69,68,68,1);
+}
