@@ -67,7 +67,7 @@ hr{
 main {
     /* background-color: aqua; */
     display: grid;
-    grid-template-columns: repeat(3, 24em);
+    grid-template-columns: repeat(2, 24em);
     grid-template-rows: repeat(2, auto);
     column-gap: 50px;
     margin-top: 4em;
@@ -376,10 +376,12 @@ background: #007a63;
     body {
         display: table-cell;
         vertical-align: middle;
+        overflow: auto;
     }
 
     main{
         background-color: #d68c42;
+        width: 100vw;
     }
 
     #puzzle {
