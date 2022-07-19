@@ -212,7 +212,7 @@ input:hover, #options .single_option:hover {
 
 
 .odd-section {
-    background-color: rgb(177, 177, 177) !important;
+    background-color: #b8b8b8 !important;
 }
 
 
@@ -334,7 +334,6 @@ background: #007a63;
 
 #popup-close {
     position: absolute;
-    
     right: 3rem;
     top: 3rem;
     line-height: 0;
