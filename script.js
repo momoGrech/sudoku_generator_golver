@@ -304,7 +304,7 @@ function generateTime(minutes, seconds ) {
     function updateTimer() {
         msLeft = endTime - (+new Date);
         if ( msLeft < 1000 ) {
-            element.innerHTML = "Time is up!";
+            element.innerHTML = "Time up!";
             // popup_time.classList.add('pop');
             options.style.display = "none"
             timer_5.disabled = true
