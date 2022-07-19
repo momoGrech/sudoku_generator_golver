@@ -10,52 +10,54 @@
 
   </head>
 <body>
-
-  <main>
-    <!-- <div class="popup_time animated" id="popup-1">
-      <div class="popup-content">
-          <a id="popup-close" class="animated">&times;</a>
-          <p class="popup_time_content">Game Over!</p>         
-      </div>
-    </div> -->
-
-    <section id="timing">
-      <div id="countdown">
-        <p>count time</p>
-        <p id="counter">0</p>
-      </div>
-      <div id="button_container">
-        <button class="timing-button time-btn-5">5 min</button>
-        <button class="timing-button time-btn-7">7 min</button>
-        <button class="timing-button time-btn-10">10 min</button>
-      </div>
-
-      
-    </section>
-    <div id="puzzle"></div>
-  
-    <div id="button-calculator">
-      <button type="button" id="call_API" class="button"><span class="button__text">Generate Puzzle</span></button>
-      <button type="button" class="reset">Reset</button>
-      <button id="solve-button">Solve</button>
-    </div>
-    <div id="options"></div>
-  </main>
-
-    <!-- <a href="#popup-1" class="button">Learn more</a> -->
-
-    <div class="popup animated" id="popup-1">
+  <section id="main">
+    <main>
+      <!-- <div class="popup_time animated" id="popup-1">
         <div class="popup-content">
             <a id="popup-close" class="animated">&times;</a>
-            <div class="level-container">
-              <button class="game-level" id="beginner">Beginner</button>
-              <button class="game-level" id="intermediate">Intermediate</button>
-              <button class="game-level" id="hard">Hard</button>
-              <button class="game-level" id="nightmare">Nightmare</button>
-            </div>
-           
+            <p class="popup_time_content">Game Over!</p>         
         </div>
-    </div>
+      </div> -->
+  
+      <div id="button-calculator">
+        <button type="button" id="call_API" class="button"><span class="button__text">Generate Puzzle</span></button>
+        <button type="button" class="reset">Reset</button>
+        <button id="solve-button">Solve</button>
+        <button>Timing</button>
+      </div>
+      <div id="puzzle"></div>
+    
+  
+      <div id="options"></div>
+    </main>
+  
+      <!-- <a href="#popup-1" class="button">Learn more</a> -->
+  
+      <div class="popup animated" id="popup-1">
+          <div class="popup-content">
+              <a id="popup-close" class="animated">&times;</a>
+              <div class="level-container">
+                <button class="game-level" id="beginner">Beginner</button>
+                <button class="game-level" id="intermediate">Intermediate</button>
+                <button class="game-level" id="hard">Hard</button>
+                <button class="game-level" id="nightmare">Nightmare</button>
+              </div>
+             
+          </div>
+          <section id="timing">
+            <div id="countdown">
+              <p>count time</p>
+              <p id="counter">0</p>
+            </div>
+            <div id="button_container">
+              <button class="timing-button time-btn-5">5 min</button>
+              <button class="timing-button time-btn-7">7 min</button>
+              <button class="timing-button time-btn-10">10 min</button>
+            </div>
+          </section>
+      </div>
+  </section>
+  
   
   <script src="script.js"></script>
   <!-- <script src="generator.js"></script> -->

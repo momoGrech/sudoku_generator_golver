@@ -74,6 +74,8 @@ main {
     justify-content: space-around;
     align-items: center;
     height: 520px;
+    width: 100%;
+    /* overflow: hidden; */
 }
 
 /* #button-calculator {
@@ -84,9 +86,16 @@ main {
     display: grid;
     grid-template-rows: repeat(3, 150px);
     column-gap: 67px;
-    justify-content: center;
-    
+    justify-content: center;   
 }
+
+#button-calculator{
+    grid-template-rows: repeat(4, 6em);
+    background-color: #940d77;
+    width: 20em;
+}
+
+
 #button-options, #button-calculator, #timing{
     align-items: center;
 }
@@ -153,7 +162,7 @@ main {
     width: 405px;
     height: 405px;
     background-color: #2d3441;
-    margin: -10px;
+    /* margin: -10px; */
     display: grid;
     grid-template-rows: repeat(9, 45px);
     grid-template-columns: repeat(9, 45px);
@@ -258,7 +267,6 @@ background: #007a63;
     justify-content: space-around;
     color: #fff;
     background-color:#009579;
-    ;
 }
 
 .number-selected {
@@ -369,19 +377,23 @@ background: #007a63;
         height: 100%;
     }
     
-    html {
-        display: table;
-        margin: auto;
-    }
-    body {
-        display: table-cell;
-        vertical-align: middle;
-        overflow: auto;
+    #main {
+        position: absolute;
+        display: block;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        height: 100vh;
+        overflow-y: hidden;
     }
 
     main{
         background-color: #d68c42;
-        width: 100vw;
+        width: 100%;
+        grid-template-columns: repeat(1, 100%);
+        height: 100%;
+        margin: 0;
+        align-content: space-around;
     }
 
     #puzzle {
@@ -389,11 +401,34 @@ background: #007a63;
         height: 324px;
         grid-template-rows: repeat(9, 36px);
         grid-template-columns: repeat(9, 36px);
+        margin-bottom: 7em;
     }
     
     #puzzle .input-style {
         width: 36px;
         height: 36px;
     }
+    #button-calculator{
+        grid-template-columns: repeat(2, 5em);
+        background-color: #940d77;
+        width: 324px;
+        height: 12em;
+        justify-content: space-around;
+        justify-items: center;
+        margin-top: -1em;
+    }
 
+    #options{
+        height: 36px;
+        width: 324px;
+    }
+
+    #button-calculator > button{
+        font-size: 14px;
+        width: 8em;
+    }
+
+    .popup {
+        height: 90vh;
+    }
 }
