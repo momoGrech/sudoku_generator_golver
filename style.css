@@ -362,3 +362,36 @@ background: #007a63;
     position: relative;
     background: rgba(69,68,68,1);
 }
+
+@media only screen and (max-width: 600px){
+    
+    html, body {
+        height: 100%;
+    }
+    
+    html {
+        display: table;
+        margin: auto;
+    }
+    body {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    main{
+        background-color: #d68c42;
+    }
+
+    #puzzle {
+        width: 324px;
+        height: 324px;
+        grid-template-rows: repeat(9, 36px);
+        grid-template-columns: repeat(9, 36px);
+    }
+    
+    #puzzle .input-style {
+        width: 36px;
+        height: 36px;
+    }
+
+}
