@@ -146,8 +146,7 @@ main {
     flex-direction: row;
     justify-content: space-between;
     /* background-color: #2d3441; */
-    width: 100%;
-    
+    width: 100%;   
 }
 
 .timing-button {
@@ -176,8 +175,8 @@ main {
     box-sizing: border-box;
     border: 1px rgb(82, 82, 82) solid;
     background-color: #fff;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 2rem;
+    /* font-weight: bold; */
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -212,12 +211,6 @@ input:hover, #options .single_option:hover {
 .even-section {
     background-color: rgb(194, 193, 193);
 }
-
-/* .even-section, .odd-section{
-    font-weight: bold;
-    text-align: center; 
-    padding-left: 10px;
-} */
 
 
 .odd-section {
@@ -260,8 +253,8 @@ background: #007a63;
     text-align: center;
     border: 1px rgb(48, 48, 48) solid;
     width: 100%;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 2rem;
+    /* font-weight: bold; */
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -299,7 +292,7 @@ background: #007a63;
 
 /* pop up */
 
-.popup, .popup_time {
+.popup, .pop-timing {
     position: fixed;
     top: 0;
     width: 100%;
@@ -340,7 +333,7 @@ background: #007a63;
     width: 6em;
 }
 
-#popup-close {
+#popup-close, #popup-close-timing {
     position: absolute;
     right: 3rem;
     top: 3rem;
@@ -352,11 +345,13 @@ background: #007a63;
     text-decoration: none;
 }
 
-#popup-close:hover {
+#popup-close:hover, #popup-close-timing:hover {
     color: #20bf6b;
 }
 
-
+button:hover{
+    font-weight: bold;
+}
 
 .popup-content{
     position: absolute;
@@ -369,6 +364,11 @@ background: #007a63;
     border-radius: 3px;
     position: relative;
     background: rgba(69,68,68,1);
+}
+
+#countdown > p{
+    display: inline;
+    color: #fff;
 }
 
 @media only screen and (max-width: 600px){
@@ -431,4 +431,61 @@ background: #007a63;
     .popup {
         height: 90vh;
     }
+     .popup-content{
+        width: 100%;
+        height: 60vh;
+
+    }
+
+    .level-container, #button_container{
+        width: 100%;
+        height: 50%;
+        background-color: #009579;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        position: relative;
+        top: 50%;
+        transform: translate(0 , -50%);
+    }
+
+    .game-level{
+        /* background-color: #940d77; */
+        border: none;
+    }
+    .game-level:hover{
+        font-weight: bold;
+    }
+
+    #popup-close, #popup-close-timing {
+        font-size: 2em;
+    }
+
+    #button_container{
+        flex-direction: column;
+        align-items: center;
+        background-color: #009579;
+        height: auto;
+    }
+    #button_container .timing-button{
+        margin: 1em 0;
+    }
+    
+    #timing .popup-content{
+        position: absolute;
+        display: block;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .timing-button{
+        border: none;
+    }
+    #puzzle .input-style, .single_option {
+        font-size: 1.5rem;
+    }
+
+
+        
 }
