@@ -292,7 +292,7 @@ background: #007a63;
 
 /* pop up */
 
-.popup, .pop-timing {
+.popup, #timing .popup-content{
     position: fixed;
     top: 0;
     width: 100%;
