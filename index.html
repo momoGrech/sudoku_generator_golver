@@ -12,20 +12,20 @@
 <body>
   <section id="main">
     <main>
-      <!-- <div class="popup_time animated" id="popup-1">
-        <div class="popup-content">
-            <a id="popup-close" class="animated">&times;</a>
-            <p class="popup_time_content">Game Over!</p>         
-        </div>
-      </div> -->
-  
       <div id="button-calculator">
         <button type="button" id="call_API" class="button"><span class="button__text">Generate Puzzle</span></button>
         <button type="button" class="reset">Reset</button>
         <button id="solve-button">Solve</button>
-        <button>Timing</button>
+        <button id="set-time">Timing</button>
       </div>
-      <div id="puzzle"></div>
+      <div id="puzzle_container">
+        <div id="countdown">
+          <p>count time: </p>
+          <p id="counter">0</p>
+        </div>
+        <div id="puzzle"></div>
+      </div>
+      
     
   
       <div id="options"></div>
@@ -44,18 +44,17 @@
               </div>
              
           </div>
-          <section id="timing">
-            <div id="countdown">
-              <p>count time</p>
-              <p id="counter">0</p>
-            </div>
-            <div id="button_container">
-              <button class="timing-button time-btn-5">5 min</button>
-              <button class="timing-button time-btn-7">7 min</button>
-              <button class="timing-button time-btn-10">10 min</button>
-            </div>
-          </section>
       </div>
+      <section id="timing" class="pop-timing">
+        <div class="popup-content">
+          <a id="popup-close-timing" class="animated">&times;</a>
+          <div id="button_container">
+            <button class="timing-button time-btn-5">5 min</button>
+            <button class="timing-button time-btn-7">7 min</button>
+            <button class="timing-button time-btn-10">10 min</button>
+          </div>
+        </div>
+      </section>
   </section>
   
   

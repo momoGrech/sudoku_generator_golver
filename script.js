@@ -4,8 +4,17 @@ const resetButton = document.querySelector('.reset')
 const solveButton = document.getElementById('solve-button');
 
 const popup = document.querySelector('.popup')
-const popup_time = document.querySelector('.popup_time')
+const popup_time = document.querySelector('.pop-timing')
 const popup_close = document.getElementById('popup-close')
+
+const popup_close_timing = document.getElementById('popup-close-timing')
+
+popup_close_timing.addEventListener('click', ()=>{
+    popup_time.classList.remove('pop')
+    // window.location.reload()
+})
+const timer = document.getElementById('set-time')
+
 
 const beginner = document.getElementById('beginner')
 const intermediate = document.getElementById('intermediate')
@@ -27,6 +36,9 @@ popup_close.addEventListener('click', ()=>{
     window.location.reload()
 })
 
+timer.addEventListener('click', ()=>{ 
+    popup_time.classList.add('pop')
+})
 generatePuzzle.addEventListener('click', ()=>{
     let game_difficulty = 0
     popup.classList.add('pop')
@@ -285,14 +297,17 @@ timer_10.disabled = true
 
 timer_5.addEventListener('click', function (){
     generateTime(0.1, 0 )
+    popup_time.classList.remove('pop')
 })
 
 timer_7.addEventListener('click', function (){
     generateTime(7, 0 )
+    popup_time.classList.remove('pop')
 })
 
 timer_10.addEventListener('click', function (){
     generateTime(10, 0 )
+    popup_time.classList.remove('pop')
 })
 
 var element, endTime, hours, mins, msLeft, time;
