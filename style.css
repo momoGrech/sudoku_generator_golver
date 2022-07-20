@@ -291,7 +291,6 @@ background: #007a63;
 }
 
 /* pop up */
-
 .popup, #timing .popup-content{
     position: fixed;
     top: 0;
@@ -485,7 +484,5 @@ button:hover{
     #puzzle .input-style, .single_option {
         font-size: 1.5rem;
     }
-
-
         
 }

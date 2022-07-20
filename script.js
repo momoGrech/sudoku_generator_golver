@@ -109,7 +109,6 @@ solveButton.addEventListener('click', ()=>{
     
 })
 
-
 function validate_input2(index, row, col, grid) {
     if(isColSafe(grid, col, index) &&
     isRowSafe(grid, row, index) &&
