@@ -38,7 +38,9 @@ popup_close.addEventListener('click', ()=>{
 
 timer.addEventListener('click', ()=>{ 
     popup_time.classList.add('pop')
+    // alert("hel")
 })
+
 generatePuzzle.addEventListener('click', ()=>{
     let game_difficulty = 0
     popup.classList.add('pop')
@@ -95,9 +97,10 @@ function geneate_puzzle(grid_param, level){
     timer_10.disabled = false
     generate_options()
 }
-
+let solution = false;
 solveButton.disabled = true
 solveButton.addEventListener('click', ()=>{
+    solution = true
     generate_solution(grid_9x9)
     populate_grid(grid_9x9)
     timer_5.disabled = true
@@ -222,7 +225,13 @@ const create_grid_9x9 = function(){
                 console.log("Index: "+ public_index)
                 console.log("Row: "+i)
                 console.log("Column : "+j)
-                validate_input(public_index, i, j, grid_elements)
+                if(solution === false){
+                    validate_input(public_index, i, j, grid_elements)
+                }
+                else{
+                    return
+                }
+                
             })
             if( (i <= 2 && j <= 2)||
                 (i <=2  && j > 5 && j <= 8)||
