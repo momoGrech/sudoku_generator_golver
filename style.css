@@ -237,19 +237,6 @@ input[type="radio"]:checked {
     grid-template-columns: repeat(9, 45px);
 }
 
-/* .style {
-    width: 45px;
-    height: 45px;
-    box-sizing: border-box;
-    border: 1px rgb(82, 82, 82) solid;
-    background-color: #fff;
-    font-size: 20px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-} */
-
 input:hover, #options .single_option:hover {
     cursor: pointer;
     background-color: #048b73;
@@ -539,9 +526,7 @@ button:hover{
     #popup-close, #popup-close-timing {
         font-size: 2em;
     }
-    #button_container{
-        margin: 1em 0;
-    }
+
     
     #timing .popup-content{
         position: absolute;
@@ -573,6 +558,8 @@ button:hover{
     position: relative;
     top: 50%;
     transform: translate(0 , -50%);
+    margin: 1em 0;
+    background-color: transparent;
 }
 
 
