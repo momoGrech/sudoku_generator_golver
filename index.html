@@ -27,9 +27,9 @@
       </div>
       <div id="options"></div>
 
-        <div class="popup animated" id="popup-1">
+        <div class="popup" id="popup-1">
           <div class="popup-content">
-              <a id="popup-close" class="animated">&times;</a>
+              <a id="popup-close" class="">&times;</a>
               <div class="level-container">
                 <button class="game-level" id="beginner">Beginner</button>
                 <button class="game-level" id="intermediate">Intermediate</button>
@@ -41,20 +41,31 @@
       </div>
       <section id="timing" class="pop-timing">
         <div class="popup-content">
-          <a id="popup-close-timing" class="animated">&times;</a>
+          <a id="popup-close-timing" class="">&times;</a>
           <div id="button_container">
-            <button class="timing-button time-btn-5">5 min</button>
-            <button class="timing-button time-btn-7">7 min</button>
-            <button class="timing-button time-btn-10">10 min</button>
+              <div class="bt-wrap">
+                  <input type="radio" id="time-btn-5" class="timing-button" name="setTime" value="time-btn-5">
+                  <input type="radio" id="time-btn-7" class="timing-button" name="setTime" value="time-btn-7">
+                  <input type="radio" id="time-btn-10" class="timing-button" name="setTime" value="time-btn-10">
+              </div>
+              <div class="label-wrap">
+                  <label for="time-btn-5">5 min</label>
+                  <label for="time-btn-7">7 min</label>
+                  <label for="time-btn-10">10 min</label>
+              </div>
+              <button id="setTime">Generate time</button>
           </div>
         </div>
       </section>
+      <div class="gameOver-alert">
+              <div class="popup-content">
+                <a id="popup-close-gameOver" class="">&times;</a>
+                <div class="alert-container">
+                  <p>Game over!</p>
+                </div>
+              </div>
+        </div>
     </main>
-  
-      <!-- <a href="#popup-1" class="button">Learn more</a> -->
-  
-
-  
   
   <script src="script.js"></script>
   

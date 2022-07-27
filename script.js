@@ -2,9 +2,10 @@ const generatePuzzle = document.getElementById('call_API')
 const spinner = document.querySelector('.button')
 const resetButton = document.querySelector('.reset')
 const solveButton = document.getElementById('solve-button');
-
+const gameOver = document.querySelector('.gameOver-alert')
 const popup = document.querySelector('.popup')
 const popup_time = document.querySelector('.pop-timing')
+const gameOverCloseBtn = document.querySelector('#popup-close-gameOver')
 const popup_close = document.getElementById('popup-close')
 
 const popup_close_timing = document.getElementById('popup-close-timing')
@@ -15,6 +16,10 @@ popup_close_timing.addEventListener('click', ()=>{
 })
 const timer = document.getElementById('set-time')
 
+gameOverCloseBtn.addEventListener('click', ()=>{
+    gameOver.classList.remove('pop')
+    
+})
 
 const beginner = document.getElementById('beginner')
 const intermediate = document.getElementById('intermediate')
@@ -95,10 +100,12 @@ function geneate_puzzle(grid_param, level){
     timer_5.disabled = false
     timer_7.disabled = false
     timer_10.disabled = false
+    timer.disabled = false
     generate_options()
 }
 let solution = false;
 solveButton.disabled = true
+timer.disabled = true
 solveButton.addEventListener('click', ()=>{
     solution = true
     generate_solution(grid_9x9)
@@ -107,7 +114,7 @@ solveButton.addEventListener('click', ()=>{
     timer_7.disabled = true
     timer_10.disabled = true
     if(msLeft > 1){
-        generateTime(0, 0)   
+        generateTime(0, 0)
     }
     
 })
@@ -295,32 +302,57 @@ const populate_grid = (puzzle_param) =>{
     }
 }
 
-const timer_5 = document.querySelector('.time-btn-5')
-const timer_7 = document.querySelector('.time-btn-7')
-const timer_10 = document.querySelector('.time-btn-10')
+const timer_5 = document.querySelector('#time-btn-5')
+const timer_7 = document.querySelector('#time-btn-7')
+const timer_10 = document.querySelector('#time-btn-10')
 
-timer_5.disabled = true
-timer_7.disabled = true
-timer_10.disabled = true
+// timer_5.disabled = true
+// timer_7.disabled = true
+// timer_10.disabled = true
 
-timer_5.addEventListener('click', function (){
-    generateTime(0.1, 0 )
+const wait=ms=>new Promise(resolve => setTimeout(resolve, ms));
+let seconds = 60
+let millSec = 1000
+let min = 1
+
+const submitTime = document.querySelector('#setTime')
+
+submitTime.addEventListener('click', function (){
+    
+    if(document.querySelector('#time-btn-5').checked){
+        min = 0.1
+    }else if(document.querySelector('#time-btn-7').checked){
+        min = 7
+    }else if(document.querySelector('#time-btn-10').checked){
+        min = 10
+    }
+    generateTime(min, 0)
+    timeUpAlert(min)
     popup_time.classList.remove('pop')
 })
 
-timer_7.addEventListener('click', function (){
-    generateTime(7, 0 )
-    popup_time.classList.remove('pop')
-})
+async function timeUpAlert(minParam){
+    let minutes = minParam * seconds * millSec
+    
+    wait(minutes).then(() => {
+        console.log("waited for 6 seconds");
+        gameOver.classList.add('pop')
+     })
+ }
 
-timer_10.addEventListener('click', function (){
-    generateTime(10, 0 )
-    popup_time.classList.remove('pop')
-})
+// timer_7.addEventListener('click', function (){
+//     generateTime(7, 0 )
+//     popup_time.classList.remove('pop')
+// })
+
+// timer_10.addEventListener('click', function (){
+//     generateTime(10, 0 )
+//     popup_time.classList.remove('pop')
+// })
 
 var element, endTime, hours, mins, msLeft, time;
 element = document.getElementById('counter');
-function generateTime(minutes, seconds ) {
+async function generateTime(minutes, seconds ) {
     function twoDigits( n ) {
         return (n <= 9 ? "0" + n : n);
     }
@@ -346,6 +378,7 @@ function generateTime(minutes, seconds ) {
     endTime = (+new Date) + 1000 * (60*minutes + seconds) + 500
 
     updateTimer();
+    return;
 }
 
 function nextEmptySpot(board) {

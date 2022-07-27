@@ -133,7 +133,7 @@ main {
     background-color: #048b73;
 }
 
-#button-options > button, #button-calculator > button, .timing-button, .game-level{
+#button-options > button, #button-calculator > button, .game-level, #setTime{
     background-color: transparent;
     border-radius: 3px;
     border: 1px #fff solid;
@@ -144,9 +144,21 @@ main {
     font-weight: 400;
     font-size: 16px;
     padding: 5px;
-    padding-top: 3px;
-    outline: none;
+    /* padding-top: 3px;
+    outline: none; */
 }
+
+input[type="radio"] {
+    transform: scale(2);
+    /* background-color: #007a63; */
+    accent-color: #009579;
+}
+
+input[type="radio"]:checked {
+    transform: scale(2.5);
+
+}
+
 
 #options, .input-style {
     font-family: 'Zen Kaku Gothic New', sans-serif;
@@ -154,15 +166,40 @@ main {
 
 #button_container{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
-    /* background-color: #2d3441; */
     width: 100%;   
+    height: 150px;
+    /* background-color: #009579; */
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    top: 50%;
+    transform: translate(0 , -50%);
 }
 
-.timing-button {
-    width: 28%;
+#setTime {
+    width: 8em;
+    background-color: #009579;
+    margin-top: 2em;
 }
+
+.label-wrap {
+    width: 100%;
+    margin-top: 0.5em;
+    color: #fff;
+}
+.timing-button{
+    margin: 0 5em;
+}
+
+.label-wrap > label{
+    width: 7.5em;
+    /* color: #940d77;
+    background-color: #d68c42; */
+    display: inline-block;
+}
+
 
 #button-options > button:hover{
     background-color: #007a63;
@@ -302,7 +339,7 @@ background: #007a63;
 }
 
 /* pop up */
-.popup, .pop-timing {
+.popup, .pop-timing, .gameOver-alert {
     position: fixed;
     top: 0;
     width: 100%;
@@ -320,7 +357,7 @@ background: #007a63;
     animation-duration: 0.5s;
 }
 
-.level-container, #button_container{
+.level-container, .alert-container{
     width: 100%;
     height: 100px;
     background-color: #009579;
@@ -333,12 +370,20 @@ background: #007a63;
     transform: translate(0 , -50%);
 }
 
+.alert-container{
+    background-color: #d12f12;
+}
+.alert-container > p{
+    font-size: 20px;
+    color: #fff;
+}
+
 
 .game-level{
     width: 6em;
 }
 
-#popup-close, #popup-close-timing {
+#popup-close, #popup-close-timing, #popup-close-gameOver {
     position: absolute;
     right: 3rem;
     top: 3rem;
@@ -350,7 +395,7 @@ background: #007a63;
     text-decoration: none;
 }
 
-#popup-close:hover, #popup-close-timing:hover {
+#popup-close:hover, #popup-close-timing:hover, #popup-close-gameOver:hover {
     color: #20bf6b;
 }
 
@@ -413,6 +458,7 @@ button:hover{
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        overflow-y: hidden;
     }
 
     #puzzle {
@@ -493,14 +539,7 @@ button:hover{
     #popup-close, #popup-close-timing {
         font-size: 2em;
     }
-
     #button_container{
-        flex-direction: column;
-        align-items: center;
-        background-color: #009579;
-        height: auto;
-    }
-    #button_container .timing-button{
         margin: 1em 0;
     }
     
@@ -522,5 +561,36 @@ button:hover{
 
         align-content: space-between;
     }
+
+    #button_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;   
+    height: 150px;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    top: 50%;
+    transform: translate(0 , -50%);
+}
+
+
+.label-wrap {
+    width: 100%;
+    /* margin-top: 0.5em; */
+    color: #fff;
+}
+.timing-button{
+    margin: 0 2em;
+}
+
+.label-wrap > label{
+    width: 5em;
+    /* color: #940d77;
+    background-color: #d68c42; */
+    display: inline-block;
+    font-size: 0.7em;
+}
 }
 
