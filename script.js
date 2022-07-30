@@ -1,22 +1,16 @@
-
 const popup = document.querySelector('.popup')
 const popup_time = document.querySelector('.pop-timing')
 
-
 const popup_close_timing = document.getElementById('popup-close-timing')
-popup_close_timing.addEventListener('click', ()=>{
+popup_close_timing.addEventListener('click', () => {
     popup_time.classList.remove('pop')
-    // window.location.reload()
 })
 
 const gameOver = document.querySelector('.gameOver-alert')
 const gameOverCloseBtn = document.querySelector('#popup-close-gameOver')
-gameOverCloseBtn.addEventListener('click', ()=>{
-    gameOver.classList.remove('pop')
-    
+gameOverCloseBtn.addEventListener('click', () => {
+    gameOver.classList.remove('pop')  
 })
-
-
 
 const options = document.getElementById('options')
 
@@ -29,15 +23,14 @@ let grid_9x9 = []
 const puzzleBoard = document.getElementById('puzzle');
 
 const popup_close = document.getElementById('popup-close')
-popup_close.addEventListener('click', ()=>{
+popup_close.addEventListener('click', () => {
     popup.classList.remove('pop')
     window.location.reload()
 })
 
 const timer = document.getElementById('set-time')
-timer.addEventListener('click', ()=>{ 
+timer.addEventListener('click', () => { 
     popup_time.classList.add('pop')
-    // alert("hel")
 })
 
 const beginner = document.getElementById('beginner')
@@ -45,31 +38,26 @@ const intermediate = document.getElementById('intermediate')
 const hard = document.getElementById('hard')
 const nightmare = document.getElementById('nightmare')
 const generatePuzzle = document.getElementById('call_API')
-generatePuzzle.addEventListener('click', ()=>{
-    let game_difficulty = 0
+generatePuzzle.addEventListener('click', () => {
     popup.classList.add('pop')
 
-    beginner.addEventListener('click', ()=>{
-        game_difficulty = 70
-        geneate_puzzle(grid_9x9, game_difficulty)
+    beginner.addEventListener('click', ()=>{      
+        geneate_puzzle(grid_9x9, GAME_DIFFICULTY.BEGINNER)
         popup.classList.remove('pop')
     })
 
     intermediate.addEventListener('click', ()=>{
-        game_difficulty = 55
-        geneate_puzzle(grid_9x9, game_difficulty)
+        geneate_puzzle(grid_9x9, GAME_DIFFICULTY.INTERMEDIATE)
         popup.classList.remove('pop')
     })
 
     hard.addEventListener('click', ()=>{
-        game_difficulty = 40
-        geneate_puzzle(grid_9x9, game_difficulty)
+        geneate_puzzle(grid_9x9, GAME_DIFFICULTY.HARD)
         popup.classList.remove('pop')
     })
 
     nightmare.addEventListener('click', ()=>{
-        game_difficulty = 20
-        geneate_puzzle(grid_9x9, game_difficulty)
+        geneate_puzzle(grid_9x9, GAME_DIFFICULTY.NIGHTMARE)
         popup.classList.remove('pop')
     })
 })
@@ -82,9 +70,8 @@ loading_btn.addEventListener("click", () => {
 let selected_option = null
 
 let level = 79
-// Function to create API URL, fetch it and return the result which is a sudoku puzzle
-function geneate_puzzle(grid_param, level){
-    // spinner.classList.add('button--loading')
+// Method to create API URL, fetch it and return the result which is a sudoku puzzle
+const geneate_puzzle = (grid_param, level) => {
     
     generate_board(grid_param)
     generate_solution(grid_param)
@@ -100,7 +87,7 @@ function geneate_puzzle(grid_param, level){
 
 let solution = false;
 const solveButton = document.getElementById('solve-button');
-solveButton.addEventListener('click', ()=>{
+solveButton.addEventListener('click', () => {
     solution = true
     generate_solution(grid_9x9)
     populate_grid(grid_9x9)
@@ -110,17 +97,9 @@ solveButton.addEventListener('click', ()=>{
     }
 })
 
-function validate_input2(index, row, col, grid) {
-    if(isColSafe(grid, col, index) &&
-    isRowSafe(grid, row, index) &&
-    isBoxSafe(grid, row - row%3, col - col%3, index)) {
-        return true;
-    }
-    return false
-}
 
-// Function to check values: validate column - row - 3X3
-function validate_input(index, row, col, grid) {
+// Method to check values: validate column - row - 3X3
+const validate_input = (index, row, col, grid) => {
     
     if(isColSafe(grid, col, index) &&
     isRowSafe(grid, row, index) &&
@@ -135,9 +114,8 @@ function validate_input(index, row, col, grid) {
     }
     else{
         console.log(index + " is wrong")
-        //grid[row][col].style.backgroundColor = "#fff"
         grid[row][col].classList.add('animate')
-        setTimeout(function() {
+        setTimeout(()=> {
             grid[row][col].classList.remove('animate');},3000);
     }
     if(selected_option !== null) {
@@ -169,7 +147,6 @@ const isColSafe = (grid, col, index) => {
 }
 
 const isBoxSafe = (grid, box_row, box_col, index) => {
-    //alert("this is box")
     for (let row = 0; row < 3; row++) {
         for (let col = 0; col < 3; col++) {
             if (grid[row + box_row][col + box_col].value === index){
@@ -190,7 +167,7 @@ function clearCells(){
 const temp = document.getElementById('temp')
 // generate puzzle
 
-function generate_options(){
+const generate_options = () => {
     //Populate values in the grid
     for(let i = 1; i <= 9; i++){
         let number = document.createElement('span')
@@ -202,14 +179,14 @@ function generate_options(){
     }
 }
 
-const create_grid_9x9 = function(){
+const create_grid_9x9 = () => {
     for(let i = 0; i < 9; i++){
         grid_elements.push([]);
         for(let j = 0; j < 9; j++){
             grid_elements[i][j] = document.createElement('div')
             // cells[i][j].classList.add('style')
             grid_elements[i][j].classList.add('input-style')
-            grid_elements[i][j].addEventListener('click', function(){
+            grid_elements[i][j].addEventListener('click', () => {
                 if(public_index === null && mins === undefined){
                     alert("Please select an option")
                     return
@@ -245,7 +222,7 @@ const create_grid_9x9 = function(){
 let box_row = 0
 let box_col = 0
 
-function select_option(){
+const select_option = () => {
     let parsed_option = null
     if (selected_option != null) {
         selected_option.classList.remove("number-selected");
@@ -259,7 +236,7 @@ function select_option(){
 const input_cells = puzzleBoard.querySelectorAll('div')
 
 
-const zeroise_grid_elements = (grid_param) =>{
+const zeroise_grid_elements = (grid_param) => {
     for(let i = 0; i < 9; i++){
         for(let j = 0; j < 9; j++){
             grid_param[i][j].value = 0
@@ -268,7 +245,7 @@ const zeroise_grid_elements = (grid_param) =>{
     }
 }
 
-const zeroise_grid_9x9 = (grid_param) =>{
+const zeroise_grid_9x9 = (grid_param) => {
     for(let i = 0; i < 9; i++){
         for(let j = 0; j < 9; j++){
             grid_param[i][j] = 0
@@ -276,7 +253,7 @@ const zeroise_grid_9x9 = (grid_param) =>{
     }
 }
 
-const populate_grid = (puzzle_param) =>{
+const populate_grid = (puzzle_param) => {
     let counter = 0
     for(let i = 0; i < 9; i++){
         for(let j = 0; j < 9; j++){
@@ -295,12 +272,11 @@ const populate_grid = (puzzle_param) =>{
 const wait=ms=>new Promise(resolve => setTimeout(resolve, ms));
 let seconds = 60
 let millSec = 1000
-let min = 1
+let min;
 
 const submitTime = document.querySelector('#setTime')
 
-submitTime.addEventListener('click', function (){
-    
+submitTime.addEventListener('click', () => {
     if(document.querySelector('#time-btn-5').checked){
         min = 0.1
     }else if(document.querySelector('#time-btn-7').checked){
@@ -308,32 +284,33 @@ submitTime.addEventListener('click', function (){
     }else if(document.querySelector('#time-btn-10').checked){
         min = 10
     }
+    if(min === undefined){
+        alert("Time frame has not been selected")
+        return
+    }
     generateTime(min, 0)
     timeUpAlert(min)
     popup_time.classList.remove('pop')
 })
 
-async function timeUpAlert(minParam){
+ const timeUpAlert = async (minParam) => {
     let minutes = minParam * seconds * millSec
     
     wait(minutes).then(() => {
-        console.log("waited for 6 seconds");
         gameOver.classList.add('pop')
      })
 }
 
-
 var element, endTime, hours, mins, msLeft, time;
 element = document.getElementById('counter');
-async function generateTime(minutes, seconds ) {
-    function twoDigits( n ) {
+const generateTime = async (minutes, seconds ) => {
+    const twoDigits = (n) => {
         return (n <= 9 ? "0" + n : n);
     }
-    function updateTimer() {
+    const updateTimer = () => {
         msLeft = endTime - (+new Date);
         if ( msLeft < 1000 ) {
             element.innerHTML = "Time up!";
-            // popup_time.classList.add('pop');
             options.style.display = "none"
             timer.disabled = true
             
@@ -351,7 +328,7 @@ async function generateTime(minutes, seconds ) {
     return;
 }
 
-function nextEmptySpot(board) {
+const nextEmptySpot = (board) => {
     for (var i = 0; i < 9; i++) {
         for (var j = 0; j < 9; j++) {
             if (board[i][j] === 0)
@@ -365,7 +342,7 @@ function nextEmptySpot(board) {
 let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const difficulty = 30;
 
-function generate_board(board){
+const generate_board = (board) => {
     if(board.length === 0){
         for(let row = 0; row < 9; row++) {
             board.push([])
@@ -377,7 +354,7 @@ function generate_board(board){
 }
 
 
-function checkRow(board, row, value){
+const checkRow = (board, row, value) => {
     for(var i = 0; i < board[row].length; i++) {
         if(board[row][i] === value) {
             return false;
@@ -386,7 +363,7 @@ function checkRow(board, row, value){
     return true;
 }
 
-function checkColumn(board, column, value){
+const checkColumn = (board, column, value) => {
     for(var i = 0; i < board.length; i++) {
         if(board[i][column] === value) {
             return false;
@@ -395,7 +372,7 @@ function checkColumn(board, column, value){
     return true;
 };
 
-function checkSquare(board, row, column, value){
+const checkSquare = (board, row, column, value) => {
     let boxRow = Math.floor(row / 3) * 3;
     let boxCol = Math.floor(column / 3) * 3;
     
@@ -408,7 +385,7 @@ function checkSquare(board, row, column, value){
     return true;
 };
 
-function checkValue(board, row, column, value) {
+const checkValue = (board, row, column, value) => {
     if(checkRow(board, row, value) &&
       checkColumn(board, column, value) &&
       checkSquare(board, row, column, value)) {
@@ -418,7 +395,7 @@ function checkValue(board, row, column, value) {
 };
 
 
-function generate_solution(board) {  
+const generate_solution = (board)  =>{  
     let emptySpot = nextEmptySpot(board);
     let row = emptySpot[0];
     let col = emptySpot[1];
@@ -441,7 +418,7 @@ function generate_solution(board) {
     return board;
 }
 
-function remove_board_numbers(board, level) {
+const remove_board_numbers = (board, level)  =>{
     let non_empty_squares = []
     non_empty_squares = get_nonEmpty_cells(board)
 
@@ -449,7 +426,7 @@ function remove_board_numbers(board, level) {
     let index1 = 0;
     let index2 = 1;
 
-    non_empty_squares.sort(function () {
+    non_empty_squares.sort(() => {
         return Math.random() - 0.5;
     });
     while(rounds >= level) {
@@ -464,7 +441,7 @@ function remove_board_numbers(board, level) {
     }
 }
 
-function get_nonEmpty_cells(board){
+const get_nonEmpty_cells = (board) => {
     let non_empty_squares_row = []
     let non_empty_squares_col = []
     for(let row = 0; row < 9; row++) {
@@ -476,22 +453,22 @@ function get_nonEmpty_cells(board){
             }
         }
     }
-    non_empty_squares_row.sort(function () {
+    non_empty_squares_row.sort(() => {
         return Math.random() - 0.5;
     });
-    non_empty_squares_col.sort(function () {
+    non_empty_squares_col.sort(()=> {
         return Math.random() - 0.5;
     });
     return non_empty_squares_row, non_empty_squares_col
 }
 
 
-let shuffledNumbers = numbers.sort(function () {
+let shuffledNumbers = numbers.sort(() => {
   return Math.random() - 0.5;
 });
 
 
-const disableButtons = ()=>{
+const disableButtons = () => {
     resetButton.disabled = true
     solveButton.disabled = true
     timer.disabled = true
@@ -507,6 +484,13 @@ const enableButtons = ()=>{
     timer_7.disabled = false
     timer_10.disabled = false
     timer.disabled = false
+}
+
+const GAME_DIFFICULTY = {
+    BEGINNER: 70,
+    INTERMEDIATE: 55,
+    HARD: 40,
+    NIGHTMARE: 20
 }
 
 init = ()=>{
