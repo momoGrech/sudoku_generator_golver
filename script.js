@@ -37,7 +37,7 @@ const beginner = document.getElementById('beginner')
 const intermediate = document.getElementById('intermediate')
 const hard = document.getElementById('hard')
 const nightmare = document.getElementById('nightmare')
-const generatePuzzle = document.getElementById('generate_puzzle')
+const generatePuzzle = document.getElementById('call_API')
 generatePuzzle.addEventListener('click', () => {
     popup.classList.add('pop')
 
@@ -82,7 +82,7 @@ const geneate_puzzle = (grid_param, level) => {
     generatePuzzle.style.backgroundColor = "rgba(104, 102, 102, 0.5)";
     generatePuzzle.style.cursor = "auto"
     enableButtons()
-    generate_options()
+    options.classList.remove("disable_options")
 }
 
 let solution = false;
@@ -164,20 +164,13 @@ function clearCells(){
     window.location.reload()
 }
 
-const temp = document.getElementById('temp')
-// generate puzzle
+const availableOptions = document.querySelectorAll('.single_option');
 
-const generate_options = () => {
-    //Populate values in the grid
-    for(let i = 1; i <= 9; i++){
-        let number = document.createElement('span')
-        number.id = i
-        number.innerText = i
-        number.classList.add('single_option')
-        options.appendChild(number);
-        number.addEventListener('click', select_option);
-    }
-}
+availableOptions.forEach(option => {
+    option.addEventListener('click', () => {
+        select_option(option)
+    })
+})
 
 const create_grid_9x9 = () => {
     for(let i = 0; i < 9; i++){
@@ -222,14 +215,14 @@ const create_grid_9x9 = () => {
 let box_row = 0
 let box_col = 0
 
-const select_option = () => {
+const select_option = (param_option) => {
     let parsed_option = null
     if (selected_option != null) {
         selected_option.classList.remove("number-selected");
     }
-    selected_option = this;
-    selected_option.classList.add("number-selected");
-    parsed_option = parseInt(selected_option.innerText)
+    selected_option = param_option;
+    param_option.classList.add("number-selected");
+    parsed_option = parseInt(selected_option.innerHTML)
     public_index = parsed_option
 }
 

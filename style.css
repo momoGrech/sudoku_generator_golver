@@ -280,7 +280,7 @@ background: #007a63;
 }
 
 .disable_options {
-    /* visibility: hidden; */
+    visibility: hidden;
     opacity: 0;
 }
 
@@ -300,6 +300,7 @@ background: #007a63;
 .number-selected {
     background-color: #d68c42;
 }
+
 
 /* .animate {
     animation-name: slidein;
