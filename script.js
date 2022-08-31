@@ -37,7 +37,7 @@ const beginner = document.getElementById('beginner')
 const intermediate = document.getElementById('intermediate')
 const hard = document.getElementById('hard')
 const nightmare = document.getElementById('nightmare')
-const generatePuzzle = document.getElementById('call_API')
+const generatePuzzle = document.getElementById('generate_puzzle')
 generatePuzzle.addEventListener('click', () => {
     popup.classList.add('pop')
 
@@ -278,7 +278,7 @@ const submitTime = document.querySelector('#setTime')
 
 submitTime.addEventListener('click', () => {
     if(document.querySelector('#time-btn-5').checked){
-        min = 0.1
+        min = 5
     }else if(document.querySelector('#time-btn-7').checked){
         min = 7
     }else if(document.querySelector('#time-btn-10').checked){
